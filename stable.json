@@ -1,9 +1,9 @@
 {
   "format": 1,
   "feed_id": "alkaid-reference-stable",
-  "sequence": 1,
-  "issued_at": "2026-11-05T10:15:15.212461+00:00",
-  "expires_at": "2026-11-12T10:15:15.212461+00:00",
+  "sequence": 2,
+  "issued_at": "2026-11-05T10:59:27.341674+00:00",
+  "expires_at": "2026-11-12T10:59:27.341674+00:00",
   "key_id": "alkaid-reference-2026-11",
   "release": {
     "data_version": "1.0.1",
@@ -14,5 +14,5 @@
     "archive_size": 379540,
     "url": "https://github.com/Alkaid-Delta/Alkaid-CS2-Origin/releases/download/reference-1.0.1/Alkaid-reference-1.0.1.zip"
   },
-  "signature": "tQf4nUlSFWxeA9Cwl7N37SBgvJCNYNT4mbb2HLRXM/v6+AGr2sRQY/wptuIbLag5hlNNCfqqCRq9Rsr5bs6sBA=="
+  "signature": "Gm9zHOO9N9BUVoSfYV4JN7PAeZeQwQwfc4FM0GZDh73hKnRoiihpw3XLpdUQpyG4UaCm34POCTvDLYwoKLXyAw=="
 }

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Alkaid signed reference release v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "data_version",
+    "sequence",
+    "min_app_version",
+    "issued_at",
+    "files",
+    "key_id",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "data_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "min_app_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "key_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "files": {
+      "type": "object",
+      "minProperties": 5,
+      "maxProperties": 5,
+      "propertyNames": {
+        "enum": [
+          "skin_registry.json",
+          "agent_catalog.json",
+          "case_catalog.json",
+          "sticker_catalog.json",
+          "skin_dict.json"
+        ]
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "size",
+          "sha256"
+        ],
+        "properties": {
+          "size": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 30000000
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "required": [
+        "skin_registry.json",
+        "agent_catalog.json",
+        "case_catalog.json",
+        "sticker_catalog.json",
+        "skin_dict.json"
+      ]
+    }
+  }
+}

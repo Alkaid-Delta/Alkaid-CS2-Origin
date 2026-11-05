@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Alkaid signed stable reference update feed v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format", "feed_id", "sequence", "issued_at", "expires_at", "key_id", "signature", "release"],
+  "properties": {
+    "format": {"const": 1},
+    "feed_id": {"const": "alkaid-reference-stable"},
+    "sequence": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+    "issued_at": {"type": "string", "format": "date-time"},
+    "expires_at": {"type": "string", "format": "date-time"},
+    "key_id": {"type": "string", "minLength": 1, "maxLength": 80},
+    "signature": {"type": "string", "minLength": 88, "maxLength": 88},
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["data_version", "sequence", "min_app_version", "manifest_sha256", "archive_sha256", "archive_size", "url"],
+      "properties": {
+        "data_version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"},
+        "sequence": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "min_app_version": {"type": "string", "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"},
+        "manifest_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "archive_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "archive_size": {"type": "integer", "minimum": 1, "maximum": 60000000},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://", "maxLength": 4096}
+      }
+    }
+  }
+}

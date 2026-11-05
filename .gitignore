@@ -1,0 +1,12 @@
+*
+!README.md
+!SOURCES.md
+!CHANGELOG.md
+!stable.json
+!publisher-public-keys.json
+!schemas/
+!schemas/*.json
+!docs/
+!docs/licenses/
+!docs/licenses/*.txt
+!.gitignore
